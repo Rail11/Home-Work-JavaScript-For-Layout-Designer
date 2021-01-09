@@ -1,4 +1,3 @@
-'use strict';
 let num = `33721`,
     sum = 1;
 
