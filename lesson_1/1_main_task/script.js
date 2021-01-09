@@ -1,4 +1,3 @@
-'use strict';
 let budget = prompt(`Ваш бюджет?`),
     shopName = prompt(`Название вашего магазина?`);
 
