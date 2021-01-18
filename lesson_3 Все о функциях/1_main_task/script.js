@@ -56,37 +56,6 @@ function chooseGoods() {
 
 chooseGoods();
 
-/* Способ 2 */
-/* let i = 0;
-while (i < 5) {
-
-    let a = prompt(`Какой тип товаров будем продавать?`);
-
-    if ((typeof(a)) === 'string' && (typeof(a)) != null && a != '' && a.length < 50) {
-        console.log(`Всё верно!`)
-        mainList.shopGoods[i] = a;
-    } else {
-        mainList.shopGoods[i] = a;
-    }
-
-    i++;
-} */
-/* Способ 3 */
-// let i = 0;
-// do {
-//     let a = prompt(`Какой тип товаров будем продавать?`);
-
-//     if ((typeof(a)) === 'string' && (typeof(a)) != null && a != '' && a.length < 50) {
-//         console.log(`Всё верно!`)
-//         mainList.shopGoods[i] = a;
-//     } else {
-//         mainList.shopGoods[i] = a;
-//     }
-
-//     i++;
-// } while (i < 5);
-
-
 function workTime(time) {
     if (time < 0) {
         console.log(`Такого не может быть!`);

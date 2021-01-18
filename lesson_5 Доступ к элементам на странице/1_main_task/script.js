@@ -1,18 +1,17 @@
-/* Задание
-ОСНОВНОЕ ЗАДАНИЕ (ОБЯЗАТЕЛЬНОЕ)
-Дополнить свою программу по видео
-1) Написать проверку, что пользователь может:
-Ввести в типах товара только строку
-Не может оставить строку пустой
-Не может отменить вопрос
-2) При помощи метода перебора массива(forEach) вывести на экран 
-сообщение "У нас вы можете купить: " и полученные товары
-Товары должны начинаться с 1, а не с 0. Этот пункт - часть 
-одноименной функции
-3) Используя цикл for in для объекта вывести в консоль сообщение 
-"Наш магазин включает в себя: "
-4) Проверить на наличие ошибок.
-5) Добавить папку с уроком на свой GitHub. */
+/* ВТОРОЕ ЗАДАНИЕ (ОБЯЗАТЕЛЬНОЕ):
+1) Скачать архив, прикрепленный к уроку
+2) Задание по проекту
+Получить кнопку "Открыть магазин" через id
+Получить все поля в левом меню через классы
+Получить поля категории товаров через класс
+Получить все 3 кнопки через Tag
+Получить поля ввода товаров, времени и расчета бюджета через 
+querySelector
+Получить поля имен сотрудников через querySelectorAll
+ДОПОЛНИТЕЛЬНОЕ ЗАДАНИЕ (НЕОБЯЗАТЕЛЬНОЕ):
+1) Стилизовать магазин на свой вкус
+Классы и id трогать нельзя
+2) Добавить папку с уроком на GitHub */
 
 let money,
     name,
@@ -42,7 +41,6 @@ let mainList = {
     shopItems: [],
     /* Методы объекта это функции */
     chooseGoods: function chooseGoods() {
-        /* Cпособ 1 */
         for (let i = 0; i < 5; i++) {
             let a = prompt(`Какой тип товаров будем продавать?`, ``);
     
@@ -128,5 +126,26 @@ let mainList = {
 for (const key in mainList) {
     console.log(`Наш магазин включает в себя: ` + key);
 }
+
+let openBtn = document.getElementById(`open-btn`),
+    nameValue = document.getElementsByClassName(`name-value`),
+    budgetValue = document.getElementsByClassName(`budget-value`),
+    goodsValue = document.getElementsByClassName(`goods-value`),
+    itemsValue = document.getElementsByClassName(`items-value`),
+    employersValue = document.getElementsByClassName(`employers-value`),
+    discountValue = document.getElementsByClassName(`discount-value`),
+    isOpenValue = document.getElementsByClassName(`isopen-value`),
+    goodsItem = document.getElementsByClassName(`goods-item`),
+    mainFunctions = document.getElementsByClassName(`main-functions`),
+    btns = mainFunctions[0].getElementsByTagName(`button`),
+    chooseItem = document.querySelector(`.choose-item`),
+    timeValue = document.querySelector(`.time-value`),
+    countBudgetValue = document.querySelector(`.count-budget-value`),
+    hireEmployersItems = document.querySelectorAll(`.hire-employers-item`);
+
+
+
+
+
 
 
