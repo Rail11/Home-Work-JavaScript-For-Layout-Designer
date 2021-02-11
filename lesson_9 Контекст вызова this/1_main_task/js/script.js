@@ -3,16 +3,6 @@
 ОСНОВНОЕ ЗАДАНИЕ (ОБЯЗАТЕЛЬНОЕ):
 1) Написать функцию вызова модального окна
 2) Привязать модальное окно к кнопкам “Узнать подробнее” в табах
-3) У вас есть код:
-<input id="age" value="30">
-let age = document.getElementById('age');
-function showUser(surname, name) {
- alert("Пользователь " + surname + " " + name + ", его возраст " + 
-this.value);
-}
-showUser();
-Выведите на экран правильное сообщение, которое берет значение из input
-Написать скрипт в отдельном js файле
 */
 
 /* DOMContentLoaded прописываем чтобы скрип не начал работать пока не загрузиться дерево DOM (HTML структура) */
@@ -107,24 +97,32 @@ window.addEventListener('DOMContentLoaded', function() {
 
     /* MODAL */
 
-    let more = document.querySelector(`.more`),
-        overlay = document.querySelector(`.overlay`),
-        close = document.querySelector(`.popup-close`);
-
-    more.addEventListener(`click`, function() {
-        this.classList.add(`more-splash`);
-        overlay.style.display = `block`;
-        /* Убираем способность прокрутки страницы при открытом overlay */
-        document.body.style.overflow = `hidden`;
-    });
-
-    close.addEventListener(`click`, function () {
-        overlay.style.display = `none`;
-        /* Удаляем класс у more чтобы после закрытия снова смогла быть анимация при клике с помощью навешивания класса */
-        more.classList.remove(`more-splash`);
-        /* Возвращаем способность прокрутки страницы после закрытия overlay*/
-        document.body.style.overflow = ``;
-    });
+    function showAndHideModal(classname) {
+        let more = document.querySelectorAll(classname),
+            overlay = document.querySelector(`.overlay`),
+            close = document.querySelector(`.popup-close`);
+        
+        more.forEach(element => {
+            element.addEventListener(`click`, function() {
+                this.classList.add(`more-splash`);
+                overlay.style.display = `block`;
+                /* Убираем способность прокрутки страницы при открытом overlay */
+                document.body.style.overflow = `hidden`;
+            });
+        });
+    
+        close.addEventListener(`click`, function () {
+            overlay.style.display = `none`;
+            more.forEach(element => {
+                /* Удаляем класс у more чтобы после закрытия снова смогла быть анимация при клике с помощью навешивания класса */
+                element.classList.remove(`more-splash`);
+            });
+            /* Возвращаем способность прокрутки страницы после закрытия overlay*/
+            document.body.style.overflow = ``;
+        });
+    }
+    showAndHideModal(`.more`);
+    showAndHideModal(`.description-btn`);
 
     /* ПЛАВНАЯ ПРОКРУТКА */
 
