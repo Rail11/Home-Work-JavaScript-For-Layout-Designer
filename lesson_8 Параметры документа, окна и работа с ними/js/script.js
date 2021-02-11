@@ -105,7 +105,7 @@ window.addEventListener('DOMContentLoaded', function() {
           e.preventDefault()
           
           const blockID = item.getAttribute('href')
-          
+          /* scrollIntoView() делает прокрутку в замисимости от параметров behavior и block */
           document.querySelector(blockID).scrollIntoView({
             behavior: 'smooth',
             block: 'start'
