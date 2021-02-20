@@ -56,8 +56,6 @@ window.addEventListener('DOMContentLoaded', function() {
             "minutes": minutes,
             "seconds": seconds
         };
-
-        
     };
 
     function setClock(id, endtime) {
@@ -83,7 +81,6 @@ window.addEventListener('DOMContentLoaded', function() {
 
         updateClock();
         let timeInterval = setInterval(updateClock, 1000);
-
     };
 
     setClock(`timer`, deadline);
@@ -180,21 +177,16 @@ window.addEventListener('DOMContentLoaded', function() {
                     else {
                         statusMessage.innerHTML = message.failure;
                     }
-
                 }
                 imgLoader.src = '';
-                
             }
             /* Очищаем input'ы формы */
             for (let i = 0; i < input.length; i++) {
                 /* '' без пробела */
                 input[i].value = '';
             }
-
         })
-
     }
-
     sendingData('.main-form');
     sendingData('#form');
 
