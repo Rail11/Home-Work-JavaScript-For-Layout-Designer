@@ -15,9 +15,9 @@
 1) Написать анимацию появления модального окна через animate, 
 используя не менее 2х параметров
 2) Реализовать асинхронную отправку формы, средствами JQuery
- PHP файл можно взять из лэндинга */
+PHP файл можно взять из лэндинга */
 
-$(document).ready(function () {
+$(document).ready(function() {
     /* Основное задание */
     $('.main_btna, .main_btn, [href = "#sheldure"]').on('click', function () {
         console.log('click');
@@ -25,7 +25,7 @@ $(document).ready(function () {
         $('.modal').slideDown(1500);
     });
     
-    $('.close').on('click', function () {
+    $('.close').on('click', function() {
         $('.overlay').fadeOut(1500);
         $('.modal').slideUp(1500);
     });
@@ -38,5 +38,21 @@ $(document).ready(function () {
             height: 'toggle'
         }, 1500);
     }); */
+
+    $('.form').submit(function(event) {
+        event.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: "server.php",
+            data: "data",
+            dataType: "dataType",
+            success: function(response) {
+                console.log("Данные успешно отправлены");
+            },
+            fail: function(response) {
+                console.log("Данные не отправлены");
+            }
+        });
+    });
 
 });
