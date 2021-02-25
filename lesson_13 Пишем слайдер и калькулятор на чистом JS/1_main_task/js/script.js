@@ -1,3 +1,14 @@
+/* Задание
+ОСНОВНОЕ ЗАДАНИЕ (ОБЯЗАТЕЛЬНОЕ):
+1) Реализовать слайдер и калькулятор на сайте
+2) Проверить на наличие ошибок
+3) Исправить небольшой баг в логике калькулятора
+УСЛОЖНЕННОЕ ЗАДАНИЕ (НЕОБЯЗАТЕЛЬНОЕ):
+1) Написать свою анимацию переключения слайдов
+2) Написать css эффект изменения общей стоимости (прикрутить 
+анимацию) */
+
+
 /* DOMContentLoaded прописываем чтобы скрип не начал работать пока не загрузиться дерево DOM (HTML структура) */
 window.addEventListener('DOMContentLoaded', function() {
 
@@ -283,23 +294,34 @@ window.addEventListener('DOMContentLoaded', function() {
 
     totalValue.innerHTML = 0;
 
+    function totalAnimate() {
+        totalValue.classList.add('animFontSize');
+        function removeTotalAnimate() {
+            totalValue.classList.remove('animFontSize');
+        }
+        setTimeout(removeTotalAnimate, 2500);
+    }
+
+
     persons.addEventListener('change', function() {
         personsSum = +this.value;
         total = (daysSum * personsSum)*4000;
-        if (restDays.value == '') {
+        if (restDays.value == '' || persons.value == '') {
             totalValue.innerHTML = 0;
         } else {
             totalValue.innerHTML = total;
+            totalAnimate();
         }
     });
 
     restDays.addEventListener('change', function() {
         daysSum = +this.value;
         total = (daysSum * personsSum)*4000;
-        if (persons.value == '') {
+        if (restDays.value == '' || persons.value == '') {
             totalValue.innerHTML = 0;
         } else {
             totalValue.innerHTML = total;
+            totalAnimate();
         }
     });
 
@@ -308,8 +330,10 @@ window.addEventListener('DOMContentLoaded', function() {
             totalValue.innerHTML = 0;
         } else {
             let a = total;
-            /* Берем коэффициент value у option */
+            totalAnimate();
+            /* Берём коэффициент value у option */
             totalValue.innerHTML = a * this.options[this.selectedIndex].value;
         }
-    })
+    });
+
 });

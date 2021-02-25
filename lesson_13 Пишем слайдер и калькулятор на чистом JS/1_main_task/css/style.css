@@ -1,3 +1,18 @@
+.animFontSize {
+  animation-name: animFontSize;
+  animation-duration: 2.5s;
+}
+@keyframes animFontSize {
+  0% {
+    font-size: 46px;
+  }
+  50% {
+    font-size: 100px;
+  }
+  100% {
+    font-size: 46px;
+  }
+}
 .fade {
   animation-name: fade;
   animation-duration: 2.5s;
